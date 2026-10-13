@@ -1,5 +1,5 @@
-import 'package:ecoride/ecoride.dart' as ecoride;
+import 'package:ecoride/user.dart' as user;
 
 void main(List<String> arguments) {
-  print('Hello world: ${ecoride.calculate()}!');
+  print('Hello world: ${user.User()}!');
 }
