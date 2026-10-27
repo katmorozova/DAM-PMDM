@@ -1,3 +1,5 @@
+import 'package:ecoride/user.dart';
+
 mixin GPSLocation {
   double latitud = 0.0;
   double longitud = 0.0;
@@ -41,6 +43,24 @@ abstract class Vehicle with GPSLocation {
   }
 
   //Método abstracto
-  double calcularCostReserva(int minuts);
-  
+  double calcularCostReserva(int minuts, User user);
+}
+
+class Patinet extends Vehicle {
+  late int velocitatMaxima;
+
+  @override
+  double calcularCostReserva(int minuts, User user) {
+    late double preu;
+    double preuBase = minuts * preuPerMinut;
+    bool esVIP = false;
+
+    if (user.esVIP) {
+      double descompte = preuBase * 10 / 100;
+      preu = preuBase - descompte;
+    } else if (!user.esVIP) {
+      preu = preuBase;
+    }
+    return preu;
+  }
 }
