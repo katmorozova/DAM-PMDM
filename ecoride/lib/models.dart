@@ -13,3 +13,34 @@ mixin GPSLocation {
     return (latitud, longitud);
   }
 }
+
+abstract class Vehicle with GPSLocation {
+  late String id;
+  late int bateriaPercentatge;
+  bool enUs = false;
+  late double preuPerMinut;
+
+  //Método que devuelve estado de bateria
+  String estatBateria() {
+    late String estat;
+
+    switch (bateriaPercentatge) {
+      case >= 80:
+        estat = "Alta";
+        break;
+      case >= 20:
+        estat = "Mitjana";
+        break;
+      case < 20:
+        estat = "Crítica (Requereix càrrega)";
+        break;
+      default:
+        estat = "Desconegut";
+    }
+    return estat;
+  }
+
+  //Método abstracto
+  double calcularCostReserva(int minuts);
+  
+}
