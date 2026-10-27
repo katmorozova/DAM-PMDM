@@ -64,3 +64,16 @@ class Patinet extends Vehicle {
     return preu;
   }
 }
+
+class Cotxe extends Vehicle {
+  late int places;
+  bool requereixLlicencia = false;
+
+  @override
+  double calcularCostReserva(int minuts, User user) {
+    // TODO: implement calcularCostReserva
+    double suplementFiltreEcologic = 2.0;
+    double preuReserva = (minuts * preuPerMinut) + suplementFiltreEcologic;
+    return preuReserva;
+  }
+}
