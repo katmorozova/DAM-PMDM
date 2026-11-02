@@ -9,13 +9,13 @@ class User {
   User.nou({
     required String id,
     required String nom,
-    required String correu,
+    required this.correu,
     double saldo = 0.0,
   }) {
-    this._id = id;
-    this._nomComplet = nom;
-    this.correu = correu;
-    this._saldo = saldo;
+    _id = id;
+    _nomComplet = nom;
+    correu = correu;
+    _saldo = saldo;
   }
 
   //Constructor complet
@@ -24,6 +24,7 @@ class User {
   //Getter per a saldo i id
   String get id => _id;
   double get saldo => _saldo;
+  String get nomComplet => _nomComplet;
 
   //Mètode recarregarSaldo(double quantitat) amb un ArgumentError
   double recarregarSaldo(double quantitat) {

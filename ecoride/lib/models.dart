@@ -42,12 +42,12 @@ class Patinet extends Vehicle {
   double calcularCostReserva(int minuts, User user) {
     late double preu;
     double preuBase = minuts * preuPerMinut;
-    bool esVIP = false;
+    bool esVIP = user.esVIP;
 
-    if (user.esVIP) {
+    if (esVIP) {
       double descompte = preuBase * 10 / 100;
       preu = preuBase - descompte;
-    } else if (!user.esVIP) {
+    } else if (!esVIP) {
       preu = preuBase;
     }
     return preu;
@@ -60,7 +60,6 @@ class Cotxe extends Vehicle {
 
   @override
   double calcularCostReserva(int minuts, User user) {
-    // TODO: implement calcularCostReserva
     double suplementFiltreEcologic = 2.0;
     double preuReserva = (minuts * preuPerMinut) + suplementFiltreEcologic;
     return preuReserva;
