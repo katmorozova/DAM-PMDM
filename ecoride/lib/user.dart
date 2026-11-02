@@ -1,5 +1,7 @@
 class User {
-  late String _id, _nomComplet, correu;
+  late String _id;
+  late String _nomComplet;
+  late String correu;
   late double _saldo;
   bool esVIP = false;
 
@@ -26,8 +28,8 @@ class User {
   //Mètode recarregarSaldo(double quantitat) amb un ArgumentError
   double recarregarSaldo(double quantitat) {
     if (quantitat <= 0) {
-      throw ArgumentError('No permet quantitats negatives o zero');  
-    } 
+      throw ArgumentError('No permet quantitats negatives o zero');
+    }
     _saldo += quantitat;
     return _saldo;
   }
