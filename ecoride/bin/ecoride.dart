@@ -38,12 +38,18 @@ void main() {
   Vehicle vehicleMaxBateria = flota.reduce((a, b) => 
     b.bateriaPercentatge > a.bateriaPercentatge ? b : a
   );      
-    print('Vehicle amb la bateria més alta: $vehicleMaxBateria');
+    print(
+      'Vehicle amb la bateria més alta: ${vehicleMaxBateria.id} '
+      '(${vehicleMaxBateria.bateriaPercentatge}%)',
+      );
 
   //Subllista amb els vehicles d'na bateria superior al 20% i no estiguin en ús
   List<Vehicle> vehiclesDisponibles = flota.where((v) => 
     v.bateriaPercentatge > 20 && !v.enUs).toList();
-      print('Vehicles disponibles: $vehiclesDisponibles');
+      print(
+        'Vehicles disponibles: '
+        '${vehiclesDisponibles.map((v) => v.id).toList()}',
+      );
 
   //Simulació d'ús
   User user = User.nou(
